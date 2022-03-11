@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0609de1b93ff4e7286d353813b748af4" Name="Diagram1">
+        <EntityTypeShape EntityType="MuhasebeModel.TABLEMUSTERİ" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuhasebeModel.TABLESIPARIS" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuhasebeModel.TABLOKATEG" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MuhasebeModel.URUNİSİMLERİ" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="MuhasebeModel.FK_TABLESIPARIS_TABLEMUSTERİ" ManuallyRouted="false" />
+        <AssociationConnector Association="MuhasebeModel.FK_TABLESIPARIS_TABLOKATEG" ManuallyRouted="false" />
+        <AssociationConnector Association="MuhasebeModel.FK_TABLESIPARIS_URUNİSİMLERİ" ManuallyRouted="false" />
+        <AssociationConnector Association="MuhasebeModel.FK_URUNİSİMLERİ_TABLOKATEG" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MuhasebeModel.SIPARISLER" Width="1.5" PointX="7.3712959081732183" PointY="12.48077402100003" />
+        <AssociationConnector Association="MuhasebeModel.FK_TABLESIPARIS_SIPARISLER" />
+        <AssociationConnector Association="MuhasebeModel.FK_SIPARISLER_TABLEMUSTERİ" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

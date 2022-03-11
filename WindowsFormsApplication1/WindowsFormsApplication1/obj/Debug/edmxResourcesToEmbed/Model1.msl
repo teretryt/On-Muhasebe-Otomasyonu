@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MuhasebeModelStoreContainer" CdmEntityContainer="MuhasebeEntities2">
+    <EntitySetMapping Name="TABLEMUSTERİ">
+      <EntityTypeMapping TypeName="MuhasebeModel.TABLEMUSTERİ">
+        <MappingFragment StoreEntitySet="TABLEMUSTERİ">
+          <ScalarProperty Name="ALACAK" ColumnName="ALACAK" />
+          <ScalarProperty Name="BAKİYE" ColumnName="BAKİYE" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AD" ColumnName="AD" />
+          <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TABLESIPARIS">
+      <EntityTypeMapping TypeName="MuhasebeModel.TABLESIPARIS">
+        <MappingFragment StoreEntitySet="TABLESIPARIS">
+          <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+          <ScalarProperty Name="SİPARİŞNO" ColumnName="SİPARİŞNO" />
+          <ScalarProperty Name="URUNID" ColumnName="URUNID" />
+          <ScalarProperty Name="MUSTERI" ColumnName="MUSTERI" />
+          <ScalarProperty Name="URUNCINS" ColumnName="URUNCINS" />
+          <ScalarProperty Name="URUNUN_ADI" ColumnName="URUNUN_ADI" />
+          <ScalarProperty Name="URUN_ADEDİ" ColumnName="URUN_ADEDİ" />
+          <ScalarProperty Name="TARİH" ColumnName="TARİH" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TABLOKATEG">
+      <EntityTypeMapping TypeName="MuhasebeModel.TABLOKATEG">
+        <MappingFragment StoreEntitySet="TABLOKATEG">
+          <ScalarProperty Name="CINSID" ColumnName="CINSID" />
+          <ScalarProperty Name="CINSADI" ColumnName="CINSADI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="URUNİSİMLERİ">
+      <EntityTypeMapping TypeName="MuhasebeModel.URUNİSİMLERİ">
+        <MappingFragment StoreEntitySet="URUNİSİMLERİ">
+          <ScalarProperty Name="ALIŞ_FİYAT" ColumnName="ALIŞ_FİYAT" />
+          <ScalarProperty Name="URUNADI_ID" ColumnName="URUNADI_ID" />
+          <ScalarProperty Name="CINS" ColumnName="CINS" />
+          <ScalarProperty Name="URUNADI" ColumnName="URUNADI" />
+          <ScalarProperty Name="STOK_ADEDİ" ColumnName="STOK_ADEDİ" />
+          <ScalarProperty Name="BİRİM_FİYAT" ColumnName="BİRİM_FİYAT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="US_ADETLERI" FunctionName="MuhasebeModel.Store.US_ADETLERI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MuhasebeModel.US_ADETLERI_Result">
+          <ScalarProperty Name="CINSADI" ColumnName="CINSADI" />
+          <ScalarProperty Name="URUNUN_ADI" ColumnName="URUNUN_ADI" />
+          <ScalarProperty Name="TOPLAM" ColumnName="TOPLAM" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SORGU" FunctionName="MuhasebeModel.Store.SORGU">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MuhasebeModel.SORGU_Result">
+          <ScalarProperty Name="CINSADI" ColumnName="CINSADI" />
+          <ScalarProperty Name="URUNADI" ColumnName="URUNADI" />
+          <ScalarProperty Name="BİRİM_FİYAT" ColumnName="BİRİM_FİYAT" />
+          <ScalarProperty Name="STOK_ADEDİ" ColumnName="STOK_ADEDİ" />
+          <ScalarProperty Name="SATILAN" ColumnName="SATILAN" />
+          <ScalarProperty Name="KALAN" ColumnName="KALAN" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GELİRTABLO" FunctionName="MuhasebeModel.Store.GELİRTABLO">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MuhasebeModel.GELİRTABLO_Result">
+          <ScalarProperty Name="CINSADI" ColumnName="CINSADI" />
+          <ScalarProperty Name="URUNADI" ColumnName="URUNADI" />
+          <ScalarProperty Name="STOK_ADEDİ" ColumnName="STOK_ADEDİ" />
+          <ScalarProperty Name="BİRİM_FİYAT" ColumnName="BİRİM_FİYAT" />
+          <ScalarProperty Name="SATILAN_ÜRÜN" ColumnName="SATILAN ÜRÜN" />
+          <ScalarProperty Name="KAZANÇ" ColumnName="KAZANÇ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="SIPARISLER">
+      <EntityTypeMapping TypeName="MuhasebeModel.SIPARISLER">
+        <MappingFragment StoreEntitySet="SIPARISLER">
+          <ScalarProperty Name="ONAY" ColumnName="ONAY" />
+          <ScalarProperty Name="CARİID" ColumnName="CARİID" />
+          <ScalarProperty Name="TUTAR" ColumnName="TUTAR" />
+          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="BAŞLIK" ColumnName="BAŞLIK" />
+          <ScalarProperty Name="SIPARISID" ColumnName="SIPARISID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

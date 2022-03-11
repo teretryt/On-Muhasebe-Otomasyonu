@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MuhasebeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MuhasebeEntities2" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="TABLEMUSTERİ" EntityType="MuhasebeModel.TABLEMUSTERİ" />
+    <EntitySet Name="TABLESIPARIS" EntityType="MuhasebeModel.TABLESIPARIS" />
+    <EntitySet Name="TABLOKATEG" EntityType="MuhasebeModel.TABLOKATEG" />
+    <EntitySet Name="URUNİSİMLERİ" EntityType="MuhasebeModel.URUNİSİMLERİ" />
+    <AssociationSet Name="FK_TABLESIPARIS_TABLEMUSTERİ" Association="MuhasebeModel.FK_TABLESIPARIS_TABLEMUSTERİ">
+      <End Role="TABLEMUSTERİ" EntitySet="TABLEMUSTERİ" />
+      <End Role="TABLESIPARIS" EntitySet="TABLESIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TABLESIPARIS_TABLOKATEG" Association="MuhasebeModel.FK_TABLESIPARIS_TABLOKATEG">
+      <End Role="TABLOKATEG" EntitySet="TABLOKATEG" />
+      <End Role="TABLESIPARIS" EntitySet="TABLESIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TABLESIPARIS_URUNİSİMLERİ" Association="MuhasebeModel.FK_TABLESIPARIS_URUNİSİMLERİ">
+      <End Role="URUNİSİMLERİ" EntitySet="URUNİSİMLERİ" />
+      <End Role="TABLESIPARIS" EntitySet="TABLESIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_URUNİSİMLERİ_TABLOKATEG" Association="MuhasebeModel.FK_URUNİSİMLERİ_TABLOKATEG">
+      <End Role="TABLOKATEG" EntitySet="TABLOKATEG" />
+      <End Role="URUNİSİMLERİ" EntitySet="URUNİSİMLERİ" />
+    </AssociationSet>
+    <FunctionImport Name="US_ADETLERI" ReturnType="Collection(MuhasebeModel.US_ADETLERI_Result)" />
+    <FunctionImport Name="SORGU" ReturnType="Collection(MuhasebeModel.SORGU_Result)" />
+    <FunctionImport Name="GELİRTABLO" ReturnType="Collection(MuhasebeModel.GELİRTABLO_Result)" />
+    <EntitySet Name="SIPARISLER" EntityType="MuhasebeModel.SIPARISLER" />
+    <AssociationSet Name="FK_TABLESIPARIS_SIPARISLER" Association="MuhasebeModel.FK_TABLESIPARIS_SIPARISLER">
+      <End Role="SIPARISLER" EntitySet="SIPARISLER" />
+      <End Role="TABLESIPARIS" EntitySet="TABLESIPARIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SIPARISLER_TABLEMUSTERİ" Association="MuhasebeModel.FK_SIPARISLER_TABLEMUSTERİ">
+      <End Role="TABLEMUSTERİ" EntitySet="TABLEMUSTERİ" />
+      <End Role="SIPARISLER" EntitySet="SIPARISLER" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TABLEMUSTERİ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="AD" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="SOYAD" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="TELEFON" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="TABLESIPARIS" Relationship="MuhasebeModel.FK_TABLESIPARIS_TABLEMUSTERİ" FromRole="TABLEMUSTERİ" ToRole="TABLESIPARIS" />
+    <Property Type="Double" Name="BAKİYE" />
+    <Property Type="Double" Name="ALACAK" />
+    <NavigationProperty Name="SIPARISLER" Relationship="MuhasebeModel.FK_SIPARISLER_TABLEMUSTERİ" FromRole="TABLEMUSTERİ" ToRole="SIPARISLER" />
+  </EntityType>
+  <EntityType Name="TABLESIPARIS">
+    <Key>
+      <PropertyRef Name="URUNID" />
+    </Key>
+    <Property Name="URUNID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="MUSTERI" Type="Int32" Nullable="false" />
+    <Property Name="URUNCINS" Type="Int32" Nullable="false" />
+    <Property Name="URUNUN_ADI" Type="Int32" />
+    <Property Name="URUN_ADEDİ" Type="Int32" />
+    <Property Name="TARİH" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TABLEMUSTERİ" Relationship="MuhasebeModel.FK_TABLESIPARIS_TABLEMUSTERİ" FromRole="TABLESIPARIS" ToRole="TABLEMUSTERİ" />
+    <NavigationProperty Name="TABLOKATEG" Relationship="MuhasebeModel.FK_TABLESIPARIS_TABLOKATEG" FromRole="TABLESIPARIS" ToRole="TABLOKATEG" />
+    <NavigationProperty Name="URUNİSİMLERİ" Relationship="MuhasebeModel.FK_TABLESIPARIS_URUNİSİMLERİ" FromRole="TABLESIPARIS" ToRole="URUNİSİMLERİ" />
+    <Property Type="String" Name="SİPARİŞNO" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="TUTAR" />
+    <NavigationProperty Name="SIPARISLER" Relationship="MuhasebeModel.FK_TABLESIPARIS_SIPARISLER" FromRole="TABLESIPARIS" ToRole="SIPARISLER" />
+  </EntityType>
+  <EntityType Name="TABLOKATEG">
+    <Key>
+      <PropertyRef Name="CINSID" />
+    </Key>
+    <Property Name="CINSID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CINSADI" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="TABLESIPARIS" Relationship="MuhasebeModel.FK_TABLESIPARIS_TABLOKATEG" FromRole="TABLOKATEG" ToRole="TABLESIPARIS" />
+    <NavigationProperty Name="URUNİSİMLERİ" Relationship="MuhasebeModel.FK_URUNİSİMLERİ_TABLOKATEG" FromRole="TABLOKATEG" ToRole="URUNİSİMLERİ" />
+  </EntityType>
+  <EntityType Name="URUNİSİMLERİ">
+    <Key>
+      <PropertyRef Name="URUNADI_ID" />
+    </Key>
+    <Property Name="URUNADI_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CINS" Type="Int32" />
+    <Property Name="URUNADI" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="STOK_ADEDİ" Type="Int32" />
+    <Property Name="BİRİM_FİYAT" Type="Double" />
+    <NavigationProperty Name="TABLESIPARIS" Relationship="MuhasebeModel.FK_TABLESIPARIS_URUNİSİMLERİ" FromRole="URUNİSİMLERİ" ToRole="TABLESIPARIS" />
+    <NavigationProperty Name="TABLOKATEG" Relationship="MuhasebeModel.FK_URUNİSİMLERİ_TABLOKATEG" FromRole="URUNİSİMLERİ" ToRole="TABLOKATEG" />
+    <Property Type="Double" Name="ALIŞ_FİYAT" />
+  </EntityType>
+  <Association Name="FK_TABLESIPARIS_TABLEMUSTERİ">
+    <End Role="TABLEMUSTERİ" Type="MuhasebeModel.TABLEMUSTERİ" Multiplicity="1" />
+    <End Role="TABLESIPARIS" Type="MuhasebeModel.TABLESIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TABLEMUSTERİ">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TABLESIPARIS">
+        <PropertyRef Name="MUSTERI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TABLESIPARIS_TABLOKATEG">
+    <End Role="TABLOKATEG" Type="MuhasebeModel.TABLOKATEG" Multiplicity="1" />
+    <End Role="TABLESIPARIS" Type="MuhasebeModel.TABLESIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TABLOKATEG">
+        <PropertyRef Name="CINSID" />
+      </Principal>
+      <Dependent Role="TABLESIPARIS">
+        <PropertyRef Name="URUNCINS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TABLESIPARIS_URUNİSİMLERİ">
+    <End Role="URUNİSİMLERİ" Type="MuhasebeModel.URUNİSİMLERİ" Multiplicity="0..1" />
+    <End Role="TABLESIPARIS" Type="MuhasebeModel.TABLESIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="URUNİSİMLERİ">
+        <PropertyRef Name="URUNADI_ID" />
+      </Principal>
+      <Dependent Role="TABLESIPARIS">
+        <PropertyRef Name="URUNUN_ADI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_URUNİSİMLERİ_TABLOKATEG">
+    <End Role="TABLOKATEG" Type="MuhasebeModel.TABLOKATEG" Multiplicity="0..1" />
+    <End Role="URUNİSİMLERİ" Type="MuhasebeModel.URUNİSİMLERİ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TABLOKATEG">
+        <PropertyRef Name="CINSID" />
+      </Principal>
+      <Dependent Role="URUNİSİMLERİ">
+        <PropertyRef Name="CINS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="US_ADETLERI_Result">
+    <Property Type="String" Name="CINSADI" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="URUNUN_ADI" Nullable="true" />
+    <Property Type="Int32" Name="TOPLAM" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SORGU_Result">
+    <Property Type="String" Name="CINSADI" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="URUNADI" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="BİRİM_FİYAT" Nullable="true" />
+    <Property Type="Int32" Name="STOK_ADEDİ" Nullable="true" />
+    <Property Type="Int32" Name="SATILAN" Nullable="true" />
+    <Property Type="Int32" Name="KALAN" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GELİRTABLO_Result">
+    <Property Type="String" Name="CINSADI" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="URUNADI" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="STOK_ADEDİ" Nullable="true" />
+    <Property Type="Double" Name="BİRİM_FİYAT" Nullable="true" />
+    <Property Type="Int32" Name="SATILAN_ÜRÜN" Nullable="true" />
+    <Property Type="Double" Name="KAZANÇ" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="SIPARISLER">
+    <Key>
+      <PropertyRef Name="NO" />
+    </Key>
+    <Property Type="Int32" Name="SIPARISID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="BAŞLIK" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NO" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TABLESIPARIS" Relationship="MuhasebeModel.FK_TABLESIPARIS_SIPARISLER" FromRole="SIPARISLER" ToRole="TABLESIPARIS" />
+    <Property Type="Double" Name="TUTAR" />
+    <Property Type="Int32" Name="CARİID" />
+    <NavigationProperty Name="TABLEMUSTERİ" Relationship="MuhasebeModel.FK_SIPARISLER_TABLEMUSTERİ" FromRole="SIPARISLER" ToRole="TABLEMUSTERİ" />
+    <Property Type="Boolean" Name="ONAY" />
+  </EntityType>
+  <Association Name="FK_TABLESIPARIS_SIPARISLER">
+    <End Type="MuhasebeModel.SIPARISLER" Role="SIPARISLER" Multiplicity="0..1" />
+    <End Type="MuhasebeModel.TABLESIPARIS" Role="TABLESIPARIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIPARISLER">
+        <PropertyRef Name="NO" />
+      </Principal>
+      <Dependent Role="TABLESIPARIS">
+        <PropertyRef Name="SİPARİŞNO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SIPARISLER_TABLEMUSTERİ">
+    <End Type="MuhasebeModel.TABLEMUSTERİ" Role="TABLEMUSTERİ" Multiplicity="0..1" />
+    <End Type="MuhasebeModel.SIPARISLER" Role="SIPARISLER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TABLEMUSTERİ">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SIPARISLER">
+        <PropertyRef Name="CARİID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
